@@ -38,28 +38,7 @@ public class GenericLinkedList <T>{
         }
     }
 
-    public T get(int index) {
-        if (start == null) {
-            return null;
-        } else {
-            if (index == 0) {
-                return (T) start.present;
-            } else {
-                int count = 0;
-                ElementGeneric current = start;
-                while (current.next != null) {
-                    current = current.next;
-                    count++;
-                    if (count == index) {
-                        break;
-                    }
-                }
-                return (T) current.present;
-            }
-        }
-    }
-
-    public ElementGeneric getObject(int index) {
+    public ElementGeneric get(int index) {
         if (start == null) {
             return null;
         } else {

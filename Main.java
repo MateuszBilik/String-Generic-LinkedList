@@ -11,10 +11,10 @@ public class Main {
         list.add("siostra");
         list.add("babcia");
 
-        System.out.println(list.get(2));
+        System.out.println(list.get(2).present);
         System.out.println(list.size());
-        System.out.println(list.next(list.getObject(2)).present);
-        System.out.println(list.hasNext(list.getObject(2)));
+        System.out.println(list.next(list.get(2)).present);
+        System.out.println(list.hasNext(list.get(2)));
 
         GenericLinkedList<Integer> list2 = new GenericLinkedList<>();
 
@@ -25,10 +25,10 @@ public class Main {
         list2.add(999999);
         list2.add(987654321);
 
-        System.out.println(list2.get(2));
+        System.out.println(list2.get(2).present);
         System.out.println(list2.size());
-        System.out.println(list2.next(list2.getObject(3)).present);
-        System.out.println(list2.hasNext(list2.getObject(3)));
+        System.out.println(list2.next(list2.get(3)).present);
+        System.out.println(list2.hasNext(list2.get(3)));
 
 
 

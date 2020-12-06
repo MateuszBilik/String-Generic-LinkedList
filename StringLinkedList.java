@@ -21,7 +21,7 @@ public class StringLinkedList {
     }
 
     public boolean hasNext(Element current) {
-        return current.next == null;
+        return current.next != null;
     }
 
     public int size() {

@@ -21,7 +21,7 @@ public class GenericLinkedList <T>{
     }
 
     public boolean hasNext(ElementGeneric current) {
-        return current.next == null;
+        return current.next != null;
     }
 
     public int size() {

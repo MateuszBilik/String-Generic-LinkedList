@@ -58,6 +58,27 @@ public class GenericLinkedList <T>{
             }
         }
     }
+
+    public ElementGeneric getObject(int index) {
+        if (start == null) {
+            return null;
+        } else {
+            if (index == 0) {
+                return start;
+            } else {
+                int count = 0;
+                ElementGeneric current = start;
+                while (current.next != null) {
+                    current = current.next;
+                    count++;
+                    if (count == index) {
+                        break;
+                    }
+                }
+                return current;
+            }
+        }
+    }
 }
 
 

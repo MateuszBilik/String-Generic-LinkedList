@@ -9,4 +9,8 @@ public class Element {
         this.present = present;
         this.next = next;
     }
+
+    public String getPresent() {
+        return present;
+    }
 }

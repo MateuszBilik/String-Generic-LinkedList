@@ -38,7 +38,7 @@ public class StringLinkedList {
         }
     }
 
-    public Element get(int index) {
+    public String get(int index) {
         if (start == null) {
             return null;
         } else {
@@ -58,6 +58,29 @@ public class StringLinkedList {
             }
         }
     }
+
+
+    public Element getObject(int index) {
+        if (start == null) {
+            return null;
+        } else {
+            if (index == 0) {
+                return start;
+            } else {
+                int count = 0;
+                Element current = start;
+                while (current.next != null) {
+                    current = current.next;
+                    count++;
+                    if (count == index) {
+                        break;
+                    }
+                }
+                return current;
+            }
+        }
+    }
+
 }
 
 

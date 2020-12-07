@@ -30,7 +30,7 @@ public class GenericLinkedList <T>{
     }
 
     public T previous() {
-        if (whereYouAre + 1 < size()) {
+        if (whereYouAre + 1 <= size()) {
             whereYouAre--;
             return get(whereYouAre);
         } else {

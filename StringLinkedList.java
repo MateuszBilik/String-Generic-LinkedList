@@ -30,7 +30,7 @@ public class StringLinkedList {
     }
 
     public String previous() {
-        if (whereYouAre + 1 < size()) {
+        if (whereYouAre + 1 <= size()) {
             whereYouAre--;
             return get(whereYouAre);
         } else {

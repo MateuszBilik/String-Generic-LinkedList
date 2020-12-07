@@ -1,13 +1,16 @@
+import java.io.Serializable;
+
 public class GenericLinkedList <T>{
 
     ElementGeneric start = null;
+    int whereYouAre = -1;
 
     public void add(T everyType) {
 
         if (start == null) {
-            start = new ElementGeneric(null, everyType, null);
+            start = new ElementGeneric <T>(null, everyType, null);
         } else {
-            ElementGeneric current = start;
+            ElementGeneric<T> current = start;
             while (current.next != null) {
                 current = current.next;
             }
@@ -16,12 +19,32 @@ public class GenericLinkedList <T>{
         }
     }
 
-    public ElementGeneric next(ElementGeneric current) {
-        return current.next;
+    public T next() {
+        if (whereYouAre + 1 < size()) {
+            whereYouAre++;
+            return get(whereYouAre);
+        } else {
+            System.out.println("Isn't possible");
+            return null;
+        }
     }
 
-    public boolean hasNext(ElementGeneric current) {
-        return current.next != null;
+    public T previous() {
+        if (whereYouAre + 1 < size()) {
+            whereYouAre--;
+            return get(whereYouAre);
+        } else {
+            System.out.println("Isn't possible");
+            return null;
+        }
+    }
+
+    public boolean hasNext() {
+        return whereYouAre + 1 < size();
+    }
+
+    public boolean hasNext(int index) {
+        return index + 1 < size();
     }
 
     public int size() {
@@ -38,23 +61,24 @@ public class GenericLinkedList <T>{
         }
     }
 
-    public ElementGeneric get(int index) {
+    public T get(int index) {
         if (start == null) {
+            System.out.println("LinkedList is empty");
             return null;
         } else {
             if (index == 0) {
-                return start;
+                return (T) start.present;
             } else {
                 int count = 0;
-                ElementGeneric current = start;
-                while (current.next != null) {
+                ElementGeneric<T> current = start;
+                while (hasNext(index)) {
                     current = current.next;
                     count++;
                     if (count == index) {
                         break;
                     }
                 }
-                return current;
+                return current.present;
             }
         }
     }

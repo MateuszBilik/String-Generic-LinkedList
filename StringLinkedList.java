@@ -1,6 +1,9 @@
+import java.io.Serializable;
+
 public class StringLinkedList {
 
     Element start = null;
+    int whereYouAre = -1;
 
     public void add(String jakiś_tekst) {
 
@@ -16,12 +19,28 @@ public class StringLinkedList {
         }
     }
 
-    public Element next(Element current) {
-        return current.next;
+    public String next() {
+        if (whereYouAre + 1 < size()) {
+            whereYouAre++;
+            return get(whereYouAre);
+        } else {
+            System.out.println("Isn't possible");
+            return null;
+        }
     }
 
-    public boolean hasNext(Element current) {
-        return current.next != null;
+    public String previous() {
+        if (whereYouAre + 1 < size()) {
+            whereYouAre--;
+            return get(whereYouAre);
+        } else {
+            System.out.println("Isn't possible");
+            return null;
+        }
+    }
+
+    public boolean hasNext() {
+        return whereYouAre + 1 < size();
     }
 
     public int size() {
@@ -38,12 +57,12 @@ public class StringLinkedList {
         }
     }
 
-    public Element get(int index) {
+    public String get(int index) {
         if (start == null) {
             return null;
         } else {
             if (index == 0) {
-                return start;
+                return start.present;
             } else {
                 int count = 0;
                 Element current = start;
@@ -54,7 +73,7 @@ public class StringLinkedList {
                         break;
                     }
                 }
-                return current;
+                return current.present;
             }
         }
     }

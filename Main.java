@@ -18,8 +18,7 @@ public class Main {
 //        System.out.println(list.size());
 //        System.out.println(list.next());
 //        System.out.println(list.hasNext());
-//
-//
+
         GenericLinkedList<Integer> list2 = new GenericLinkedList<>();
 
         list2.add(123);
@@ -33,28 +32,11 @@ public class Main {
         for (int i = 0; i < 3; i++){
             System.out.println(list2.next());
         }
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             System.out.println(list2.previous());
         }
-        System.out.println("============================================");
         for (int i = 0; i < 6; i++){
             System.out.println(list2.next());
         }
-
-//        GenericLinkedList<String> list = new GenericLinkedList();
-//        list.add("hello");
-//        list.add("world");
-//        list.add("1");
-//
-//        System.out.println(list.next()); //"hello"
-//        System.out.println(list.whereYouAre);
-//        list.next(); //"world"
-//        list.previous(); //"hello"
-//        list.next(); //"world"
-//        System.out.println(list.next()); //"1"
-//        System.out.println(list.previous()); //world
-//        list.previous();//hello
-
-
     }
 }

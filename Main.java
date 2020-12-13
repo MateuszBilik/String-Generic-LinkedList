@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -27,35 +30,16 @@ public class Main {
         list2.add(987654321);
         list2.add(98765432);
 
-        System.out.println(list2.get(2));
-        System.out.println(list2.size());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.whereYouAre);
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.whereYouAre);
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.whereYouAre);
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
-        System.out.println(list2.next());
-        System.out.println(list2.hasNext());
+        for (int i = 0; i < 3; i++){
+            System.out.println(list2.next());
+        }
+        for (int i = 0; i < 4; i++){
+            System.out.println(list2.previous());
+        }
+        System.out.println("============================================");
+        for (int i = 0; i < 6; i++){
+            System.out.println(list2.next());
+        }
 
 //        GenericLinkedList<String> list = new GenericLinkedList();
 //        list.add("hello");

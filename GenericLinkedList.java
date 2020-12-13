@@ -3,26 +3,28 @@ import java.io.Serializable;
 public class GenericLinkedList <T>{
 
     ElementGeneric start = null;
-    int whereYouAre = -1;
+    ElementGeneric currentElement = null;
+
 
     public void add(T everyType) {
 
         if (start == null) {
             start = new ElementGeneric <T>(null, everyType, null);
+            currentElement = start;
         } else {
             ElementGeneric<T> current = start;
-            while (current.next != null) {
-                current = current.next;
+            while (current.getNext() != null) {
+                current = current.getNext();
             }
             ElementGeneric<T> element = new ElementGeneric(current, everyType, null);
-            current.next = element;
+            current.setNext(element);
         }
     }
 
     public T next() {
-        if (whereYouAre + 1 < size()) {
-            whereYouAre++;
-            return get(whereYouAre);
+        if (currentElement.getNext() != null) {
+            currentElement = currentElement.getNext();
+            return (T) currentElement.getPresent();
         } else {
             System.out.println("Isn't possible");
             return null;
@@ -30,9 +32,9 @@ public class GenericLinkedList <T>{
     }
 
     public T previous() {
-        if (whereYouAre + 1 <= size()) {
-            whereYouAre--;
-            return get(whereYouAre);
+        if (currentElement.getPrevious() != null) {
+            currentElement = currentElement.getPrevious();
+            return (T) currentElement.getPresent();
         } else {
             System.out.println("Isn't possible");
             return null;
@@ -40,7 +42,7 @@ public class GenericLinkedList <T>{
     }
 
     public boolean hasNext() {
-        return whereYouAre + 1 < size();
+        return currentElement.getNext() != null;
     }
 
     public boolean hasNext(int index) {
@@ -53,8 +55,8 @@ public class GenericLinkedList <T>{
         } else {
             int count = 1;
             ElementGeneric current = start;
-            while (current.next != null) {
-                current = current.next;
+            while (current.getNext() != null) {
+                current = current.getNext();
                 count++;
             }
             return count;
@@ -67,18 +69,18 @@ public class GenericLinkedList <T>{
             return null;
         } else {
             if (index == 0) {
-                return (T) start.present;
+                return (T) start.getPresent();
             } else {
                 int count = 0;
                 ElementGeneric<T> current = start;
                 while (hasNext(index)) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                     if (count == index) {
                         break;
                     }
                 }
-                return current.present;
+                return current.getPresent();
             }
         }
     }
